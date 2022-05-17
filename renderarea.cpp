@@ -45,8 +45,10 @@ void RenderArea::on_shape_changed()
         mIntervalLenght = 2 * M_PI;
         mStepCount = 256;
         break;
-    case FutureCurve:
-        // set specific values
+    case Line:
+        mScale = 100; // Line lenght in pixels
+        mIntervalLenght = 1; // not really needed for the Line
+        mStepCount = 128;
         break;
     default:
         break;
@@ -68,8 +70,8 @@ QPointF RenderArea::compute(float t)
     case HypoCycloid:
         return compute_hypo(t);
         break;
-    case FutureCurve:
-        return compute_future_curve(t);
+    case Line:
+        return compute_line(t);
         break;
     default:
         break;
@@ -105,13 +107,14 @@ QPointF RenderArea::compute_hypo(float t)
                 1.5 * (2 * sin(t) - sin(2 * t))
     );
 }
-QPointF RenderArea::compute_future_curve(float t)
+QPointF RenderArea::compute_line(float t)
 {
     //TBD
     /*
      * x = fx(t)
      * y = fy(t)
     */
+    return QPointF(1 - t, 1 - t);
 }
 void RenderArea::paintEvent(QPaintEvent *event)
 {

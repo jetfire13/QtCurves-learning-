@@ -24,7 +24,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>540</x>
@@ -44,7 +44,7 @@
      <item>
       <widget class="QPushButton" name="btnCycloid">
        <property name="text">
-        <string>Cicloid</string>
+        <string>Cycloid</string>
        </property>
       </widget>
      </item>
@@ -59,6 +59,13 @@
       <widget class="QPushButton" name="btnHypo">
        <property name="text">
         <string>Hypo Cycloid</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnLine">
+       <property name="text">
+        <string>Line</string>
        </property>
       </widget>
      </item>
