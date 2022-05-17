@@ -23,6 +23,8 @@ public:
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 signals:
+private:
+    QPointF compute_astroid(float t);
 
 private:
     QColor mBackgroundColor;
