@@ -5,9 +5,10 @@
 RenderArea::RenderArea(QWidget *parent)
     : QWidget{parent},
       mBackgroundColor (0, 0, 255),
-      mShapeColor(255, 255, 255),
+      mPen(Qt::white),
       mShape(Astroid)
-{    
+{
+    mPen.setWidth(2);
     on_shape_changed();
 }
 
@@ -58,14 +59,17 @@ void RenderArea::on_shape_changed()
         mScale = 75;
         mIntervalLenght = 2 * M_PI;
         mStepCount = 256;
+        break;
     case Fancy:
         mScale = 10;
         mIntervalLenght = 12 * M_PI;
         mStepCount = 512;
+        break;
     case Starfish:
         mScale = 25;
         mIntervalLenght = 6 * M_PI;
         mStepCount = 256;
+        break;
     default:
         break;
     }
@@ -186,9 +190,8 @@ void RenderArea::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing, true);
 
-
     painter.setBrush(mBackgroundColor);
-    painter.setPen(mShapeColor);
+    painter.setPen(mPen);
 
 
     // drawing area
