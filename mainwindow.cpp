@@ -84,6 +84,18 @@ void MainWindow::on_btnStarfish_clicked()
     this->ui->renderArea->repaint();
     update_ui();
 }
+void MainWindow::on_btnCloud_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::Cloud1);
+    this->ui->renderArea->repaint();
+    update_ui();
+}
+void MainWindow::on_btnCloud2_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::Cloud2);
+    this->ui->renderArea->repaint();
+    update_ui();
+}
 
 void MainWindow::on_spinScale_valueChanged(double scale)
 {
@@ -116,4 +128,3 @@ void MainWindow::on_btnLineColor_clicked()
     QColor color = QColorDialog::getColor(ui->renderArea->shapeColor(), this, "Select Color");
     ui->renderArea->setShapeColor(color);
 }
-
