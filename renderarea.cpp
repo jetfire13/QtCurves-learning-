@@ -51,7 +51,7 @@ void RenderArea::on_shape_changed()
         mStepCount = 128;
     case Circle:
         mScale = 150; // Line lenght in pixels
-        mIntervalLenght = 2.1 * M_PI; // not really needed for the Line
+        mIntervalLenght = 2 * M_PI; // not really needed for the Line
         mStepCount = 128;
         break;
     case Ellipse:
@@ -213,4 +213,12 @@ void RenderArea::paintEvent(QPaintEvent *event)
         painter.drawLine(pixel, prevPixel);
         prevPixel = pixel;
     }
+    QPointF point = compute(mIntervalLenght);
+    QPoint pixel;
+    pixel.setX(point.x() * mScale + center.x());
+    pixel.setY(point.y() * mScale + center.y());
+
+
+    painter.drawLine(pixel, prevPixel);
+    prevPixel = pixel;
 }
